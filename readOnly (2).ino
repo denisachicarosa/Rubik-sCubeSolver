@@ -2,7 +2,7 @@
 #include "ClassFace.h"
 #include "ClassCube.h"
 #include "Buffer.h"
-
+ 
 
 #define WHITE 0       //down
 #define YELLOW 1      //up

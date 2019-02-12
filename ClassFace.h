@@ -14,30 +14,30 @@
 
 #define CENTER 4
 #define FACES 6
-#define SQ_NB 9 
+#define SQ_NB 9
 
 
 
 
-class Face 
+class Face
 {
   public:
     short sqr[SQ_NB];           //folosesc short ca sa economisesc memorie
-    short color;  
+    short color;
     int up, down, left, right;  //  fetele care se modifica la o rotire a fetei curente
     Face()
     {
         for(int i=0; i<SQ_NB; i++)
             sqr[i] = -1;
-        color = -1;     
+        color = -1;
     }
-    
+
     int fillColors(short col[])
     {
         color = col[CENTER];
         for(int i = 0; i< SQ_NB; i++ )
             sqr[i] = col[i];
-        switch(color) 
+        switch(color)
         {
           case WHITE:
           {
@@ -63,7 +63,7 @@ class Face
             right = BLUE;
             break;
           }
-          
+
           case GREEN:
           {
             up = WHITE;
@@ -83,7 +83,7 @@ class Face
         }
     }
 
-    void afisFace() 
+    void afisFace()
     {
         for(int  i=0; i<3; i++)
             {
@@ -128,7 +128,7 @@ class Face
       newColors[8] = sqr[6];
       for(int i = 0 ; i < SQ_NB; i++)
         sqr[i] = newColors[i];
-      
+
     }
 };
 

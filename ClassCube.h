@@ -13,26 +13,26 @@
 
 #define CENTER 4
 #define FACES 6
-#define SQ_NB 9 
+#define SQ_NB 9
 
-class Cube 
+class Cube
 {
     Face F[FACES];
     ReadingBuffer buff;
-    short filled[FACES];  ///vector care spune ce fata am citit          
+    short filled[FACES];  ///vector care spune ce fata am citit
 public:
     Cube()
     {
         for(int  i = 0; i < FACES; i++)
             filled[i] = false;
-        
+
         buff.init(SQ_NB);
     }
 
     bool readData()         //functia returneaza true daca inca nu a citit toate datele din cub
     {
         if(cubeFilled()) return false;  // daca cubul e plin, nu mai citesc date
-        
+
         buff.readData();
         if(buff.filled())
         {
@@ -48,12 +48,12 @@ public:
             filled[data[CENTER]] = true;
         else return FACES;          //nu returnez -1, ci 6 pentru eroare. idk if needed
 
-        
+
         F[data[CENTER]].fillColors(data);
         F[data[CENTER]].afisFace();
 
         return data[CENTER];
-        
+
     }
 
     void printFace()
@@ -73,7 +73,7 @@ public:
     void upCW()
     {
       F[YELLOW].rotateCW();
-      
+
       int r0, r1, r2;
       r0 = F[RED].sqr[0];
       r1 = F[RED].sqr[1];
@@ -103,7 +103,7 @@ public:
     void downCW()
     {
       F[WHITE].rotateCW();
-      
+
       int r6, r7, r8;
       r6 = F[RED].sqr[6];
       r7 = F[RED].sqr[7];
@@ -132,7 +132,7 @@ public:
 
     void leftCW()
     {
-      F[BLUE].rotateCW();    
+      F[BLUE].rotateCW();
       // THE OTHER FACES
       int r0, r3, r6;
       r0 = F[RED].sqr[0];
@@ -158,12 +158,12 @@ public:
       F[WHITE].sqr[0] = r0;
       F[WHITE].sqr[3] = r3;
       F[WHITE].sqr[6] = r6;
-      
+
     }
     void rightCW()
     {
       F[GREEN].rotateCW();
-      
+
       int r2, r5, r8;
       r2 = F[RED].sqr[2];
       r5 = F[RED].sqr[5];
@@ -217,13 +217,13 @@ public:
       F[GREEN].sqr[0] = y6;
       F[GREEN].sqr[3] = y7;
       F[GREEN].sqr[6] = y8;
-      
+
     }
 
     void backCW()
     {
       F[ORANGE].rotateCW();
-      
+
       int y0, y1, y2;
       y0 = F[YELLOW].sqr[0];
       y1 = F[YELLOW].sqr[1];
@@ -247,13 +247,13 @@ public:
       //BLUE FACE UPDATE
       F[BLUE].sqr[0] = y2;
       F[BLUE].sqr[3] = y1;
-      F[BLUE].sqr[6] = y0; 
+      F[BLUE].sqr[6] = y0;
     }
 
     void upCCW()
     {
       F[YELLOW].rotateCCW();
-      
+
       int r0, r1, r2;
       r0 = F[RED].sqr[0];
       r1 = F[RED].sqr[1];
@@ -283,7 +283,7 @@ public:
     void downCCW()
     {
       F[WHITE].rotateCCW();
-      
+
       int r6, r7, r8;
       r6 = F[RED].sqr[6];
       r7 = F[RED].sqr[7];
@@ -338,12 +338,12 @@ public:
       F[YELLOW].sqr[0] = r0;
       F[YELLOW].sqr[3] = r3;
       F[YELLOW].sqr[6] = r6;
-     
+
     }
     void rightCCW()
     {
       F[GREEN].rotateCCW();
-      
+
       int r2, r5, r8;
       r2 = F[RED].sqr[2];
       r5 = F[RED].sqr[5];
@@ -372,7 +372,7 @@ public:
     void backCCW()
     {
       F[ORANGE].rotateCCW();
-      
+
       int y0, y1, y2;
       y0 = F[YELLOW].sqr[0];
       y1 = F[YELLOW].sqr[1];
@@ -396,7 +396,7 @@ public:
       //GREEN FACE UPDATE
       F[GREEN].sqr[2] = y0;
       F[GREEN].sqr[5] = y1;
-      F[GREEN].sqr[8] = y2; 
+      F[GREEN].sqr[8] = y2;
     }
     void frontCCW()
     {
@@ -425,7 +425,7 @@ public:
       //BLUE FACE UPDATE
       F[BLUE].sqr[2] = y8;
       F[BLUE].sqr[5] = y7;
-      F[BLUE].sqr[8] = y6;  
+      F[BLUE].sqr[8] = y6;
     }
 
 };
