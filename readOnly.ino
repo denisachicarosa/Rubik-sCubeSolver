@@ -1,11 +1,3 @@
-/*
-    Din ce am observat, Serial.available() nu returneaza numarul de caractere pe care le poate citi ci daca poate citi
-    Solutia pentru problema asta e o clasa ReadingBuffer in care citeste cate in caracter de fiecare data cand este disponibil
-    Mai departe, dupa ce am umplut un buffer de 9 elemente (adica daca am citit o fata), o stochez
-    Cum fac asta? Verific cate fete am citit pana acum
-    
-*/
-
 #define WHITE 0       //down
 #define YELLOW 1      //up
 #define RED 2         //front
