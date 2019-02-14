@@ -14,51 +14,51 @@
 
 #define CENTER 4
 #define FACES 6
-#define SQ_NB 9
+#define SQ_NB 9 
 
 
 
 
-class Face
+class Face 
 {
   public:
     short sqr[SQ_NB];           //folosesc short ca sa economisesc memorie
-    short color;
+    short color;  
     int up, down, left, right;  //  fetele care se modifica la o rotire a fetei curente
     Face()
     {
         for(int i=0; i<SQ_NB; i++)
             sqr[i] = -1;
-        color = -1;
+        color = -1;     
     }
-
-    int fillColors(short col[])
+    
+    int fillColors (short col[])
     {
         color = col[CENTER];
-        for(int i = 0; i< SQ_NB; i++ )
+        for (int i = 0; i< SQ_NB; i++ )
             sqr[i] = col[i];
-        switch(color)
+        switch (color)
         {
           case WHITE:
           {
-            up = ORANGE;
-            down = RED;
+            down = ORANGE;
+            up = RED;
             left = GREEN;
             right = BLUE;
             break;
           }
           case YELLOW:
           {
-            up = RED;
-            down = ORANGE;
+            down = RED;
+            up = ORANGE;
             left = GREEN;
             right = BLUE;
             break;
           }
           case RED:
           {
-            up = WHITE;
-            down = YELLOW;
+            down = WHITE;
+            up = YELLOW;
             left = GREEN;
             right = BLUE;
             break;
@@ -66,16 +66,16 @@ class Face
 
           case GREEN:
           {
-            up = WHITE;
-            down = YELLOW;
+            down = WHITE;
+            up = YELLOW;
             left = ORANGE;
             right = RED;
             break;
           }
           case BLUE:
           {
-            up = WHITE;
-            down = YELLOW;
+            down = WHITE;
+            up = YELLOW;
             left = RED;
             right = ORANGE;
             break;
@@ -83,7 +83,7 @@ class Face
         }
     }
 
-    void afisFace()
+    void afisFace() 
     {
         for(int  i=0; i<3; i++)
             {
@@ -128,7 +128,7 @@ class Face
       newColors[8] = sqr[6];
       for(int i = 0 ; i < SQ_NB; i++)
         sqr[i] = newColors[i];
-
+      
     }
 };
 

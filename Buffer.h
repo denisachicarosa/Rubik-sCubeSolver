@@ -10,7 +10,7 @@
 
 #define CENTER 4
 #define FACES 6
-#define SQ_NB 9
+#define SQ_NB 9 
 
 
 //folosesc functia asta sa convertesc din caractere in numere la citire
@@ -19,7 +19,7 @@ short chToNb (char ch)
     return (short)(ch - '0');
 }
 
-//folosesc functia asta sa afisez caractere cand afisez fetele
+//folosesc functia asta sa afisez caractere cand afisez fetele 
 char shToCh(short number) //short to ch ~ pentru afisare
 {
     switch (number)
@@ -47,7 +47,7 @@ char shToCh(short number) //short to ch ~ pentru afisare
         case ORANGE:
             return 'O';
             break;
-
+    
         default:
             return '-';
             break;
@@ -79,7 +79,7 @@ public:
         if( !filled() && Serial.available() )
         {
             buff[poz++] = chToNb(Serial.read());
-            int x;
+            int x; 
             x=poz-1;
             Serial.println(buff[x]);
         }
