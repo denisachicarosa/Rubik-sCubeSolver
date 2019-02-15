@@ -2,8 +2,9 @@
 #include "ClassFace.h"
 #include "ClassCube.h"
 #include "Buffer.h"
-
 #include "Cross.h"
+#include "Corners.h"
+#include "Edges.h"
 
 
 #define WHITE 0       //down
@@ -102,7 +103,12 @@ bool doneMot = false;
 
 void loop()
 {
-//    input();
+//input();
+//String steps;
+//Cross::solveCross(C, steps);
+//Corners::solveCorners(C, steps);
+//Edges::solveEdges(C, steps);
+
     if(doneMot == false) 
     {
     switch (mot) {

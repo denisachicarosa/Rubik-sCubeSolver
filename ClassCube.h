@@ -99,6 +99,8 @@ class Cube
       F[GREEN].sqr[0] = r0;
       F[GREEN].sqr[1] = r1;
       F[GREEN].sqr[2] = r2;
+//      cout<<"\nU:\n";
+//        printFace();
     }
     void downCW ()
     {
@@ -128,6 +130,8 @@ class Cube
       F[BLUE].sqr[6] = r6;
       F[BLUE].sqr[7] = r7;
       F[BLUE].sqr[8] = r8;
+//      cout<<"\nD:\n";
+//        printFace();
     }
     void leftCW ()
     {
@@ -150,14 +154,15 @@ class Cube
 
       //ORANGE FACE UPDATE
       F[ORANGE].sqr[2] = F[WHITE].sqr[6];
-      F[ORANGE].sqr[5] = F[WHITE].sqr[0];
-      F[ORANGE].sqr[8] = F[WHITE].sqr[3];
+      F[ORANGE].sqr[5] = F[WHITE].sqr[3];
+      F[ORANGE].sqr[8] = F[WHITE].sqr[0];
 
       //WHITE FACE UPDATE
       F[WHITE].sqr[0] = r0;
       F[WHITE].sqr[3] = r3;
       F[WHITE].sqr[6] = r6;
-
+//    cout<<"\nL:\n";
+//        printFace();
     }
     void rightCW ()
     {
@@ -187,9 +192,12 @@ class Cube
       F[YELLOW].sqr[2] = r2;
       F[YELLOW].sqr[5] = r5;
       F[YELLOW].sqr[8] = r8;
+//      cout<<"\nR:\n";
+//        printFace();
     }
     void frontCW ()
     {
+
       F[RED].rotateCW ();
 
       int y6, y7, y8;
@@ -216,7 +224,8 @@ class Cube
       F[BLUE].sqr[0] = y6;
       F[BLUE].sqr[3] = y7;
       F[BLUE].sqr[6] = y8;
-
+//      cout<<"\nF:\n";
+//        printFace();
     }
 
     void backCW ()
@@ -247,6 +256,8 @@ class Cube
       F[GREEN].sqr[0] = y2;
       F[GREEN].sqr[3] = y1;
       F[GREEN].sqr[6] = y0;
+//      cout<<"\nB:\n";
+//        printFace();
     }
 
     void upCCW ()
