@@ -1,5 +1,5 @@
-#ifndef EDGES.H
-#define EDGES.H
+#ifndef   EDGES .H
+#define   EDGES .H
 
 
 
@@ -22,11 +22,14 @@ public:
     static void solveEdges (Cube& C, String& steps)
     {
         while (!checkEdges(C))
+        {
             solveEdge(C, steps);
+        }
     }
 
     static void solveEdge (Cube& C, String& steps)
-    {   String moves;
+    {
+        String moves;
         if (C.F[YELLOW].sqr[1] != YELLOW && C.F[ORANGE].sqr[1] != YELLOW)
         {
             if (C.F[YELLOW].sqr[1] == RED)
@@ -71,7 +74,7 @@ public:
             {
                 if (C.F[GREEN].sqr[1] == ORANGE)
                     moves += "UULUUULLLBLLLBBBL";
-                else if (C.F[ORANGE].sqr[1] == RED)
+                else if (C.F[GREEN].sqr[1] == RED)
                     moves += "UULLLULFFFLFLLL";
             }
             else if (C.F[YELLOW].sqr[3] == BLUE)
@@ -95,7 +98,7 @@ public:
             {
                 if (C.F[RED].sqr[1] == GREEN)
                     moves += "UUFUUUFFFLFFFLLLF";
-                else if (C.F[GREEN].sqr[1] == BLUE)
+                else if (C.F[RED].sqr[1] == BLUE)
                     moves += "UUFFFUFRRRFRFFF";
             }
             else if (C.F[YELLOW].sqr[7] == GREEN)
@@ -151,6 +154,7 @@ public:
                     moves += "UBUUUBBBRBBBRRRB";
             }
         }
+
         else if (C.F[RED].sqr[3] != RED || C.F[GREEN].sqr[5] != GREEN)
             moves += "LLLULFFFLFLLL";
         else if (C.F[RED].sqr[5] != RED || C.F[BLUE].sqr[3] != BLUE)

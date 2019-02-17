@@ -5,7 +5,8 @@
 #include "Cross.h"
 #include "Corners.h"
 #include "Edges.h"
-
+#include"YellowFace.h"
+#include"LastLayerPermutation.h"
 
 #define WHITE 0       //down
 #define YELLOW 1      //up
@@ -101,14 +102,56 @@ void setup ()
 int mot = 0;
 bool doneMot = false;
 
+void minimizeMoves (String& steps)
+{
+    bool movesChanged = false;
+    int i = 0;
+    do
+    {
+        movesChanged = false;
+        if (steps.length() > i + 3)
+        {
+            if (steps[i] == steps[i + 1] && steps[i] == steps[i + 2] && steps[i] == steps[i + 3])
+            {
+                steps.remove(i, 4);
+                movesChanged = true;
+            }
+        }
+        if (steps.length() > i + 2 )
+            if (steps[i] == steps[i + 1] && steps[i] == steps[i + 2])
+            {
+
+                String s;
+                s[0] = steps[i];
+                s[0] = s[0] + 32;
+                steps.remove(i, 2);
+                steps[i] = s[0];
+                movesChanged = true;
+            }
+        if (i < steps.length())
+        i++;
+        else
+        i = 0;
+    }
+    while ( i < steps.length());
+}
+
+
+
 void loop()
 {
 //input();
-//String steps;
-//Cross::solveCross(C, steps);
-//Corners::solveCorners(C, steps);
-//Edges::solveEdges(C, steps);
+    String steps;
+    Cross::solveCross(C,steps);
+    Corners::solveCorners(C,steps);
+    Edges::solveEdges(C,steps);
+    YellowFace::solveYellowCross(C, steps);
+    YellowFace::solveCorners(C,steps);
+    LastLayerPermutation::solveLastLayerCorners(C, steps);
 
+    LastLayerPermutation::solveLayer(C,steps);
+    C.printFace();
+    minimizeMoves(steps);
     if(doneMot == false) 
     {
     switch (mot) {

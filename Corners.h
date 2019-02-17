@@ -61,7 +61,7 @@ public:
         }
 
         while (checkBottom(C) == false)
-        { 
+        {
             String moves;
             if (C.F[YELLOW].sqr[8] == WHITE)
             {
@@ -79,7 +79,8 @@ public:
                     }
                 case GREEN:
                     {
-                        moves += "UULUUULLUUULULLL";
+                        moves += "UULUULLLUUULULLL";
+
                         break;
                     }
                 case RED:
@@ -165,12 +166,14 @@ public:
 
     static bool checkWhiteCorners (Cube& C)
     {
+        if(!checkBottom(C))
         if(C.F[RED].sqr[6] == WHITE || C.F[RED].sqr[8] == WHITE || C.F[BLUE].sqr[6] == WHITE || C.F[BLUE].sqr[8] == WHITE || C.F[GREEN].sqr[6] == WHITE || C.F[GREEN].sqr[8] == WHITE || C.F[ORANGE].sqr[6] == WHITE || C.F[ORANGE].sqr[8] == WHITE)
         return false;
         else
             if(C.F[WHITE].sqr[0] == WHITE || C.F[WHITE].sqr[2] == WHITE || C.F[WHITE].sqr[6] == WHITE ||C.F[WHITE].sqr[8] == WHITE)
             return false;
             else  return true;
+        return true;
     }
 
 };
